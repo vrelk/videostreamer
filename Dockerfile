@@ -8,5 +8,8 @@ FROM debian:buster
 RUN apt-get update && apt-get install -y libavutil56 libavcodec58 libavformat58 libavdevice58
 COPY --from=build /videostreamer/videostreamer /
 
-ENV input rtsp://192.168.1.100:554/s0
-CMD ["/videostreamer", "-input $input"]
+COPY start.sh /
+EXPOSE 8080
+ENV input pulse
+ENV host 0.0.0.0
+CMD ["/start.sh"]
