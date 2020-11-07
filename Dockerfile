@@ -10,6 +10,5 @@ COPY --from=build /videostreamer/videostreamer /
 
 COPY start.sh /
 EXPOSE 8080
-ENV input pulse
-ENV host 0.0.0.0
+ENV INPUT pulse
 CMD ["/start.sh"]
