@@ -11,4 +11,5 @@ COPY --from=build /videostreamer/videostreamer /
 COPY start.sh /
 EXPOSE 8080
 ENV INPUT pulse
+RUN ["chmod", "+x", "/start.sh"]
 CMD ["/start.sh"]
