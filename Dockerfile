@@ -7,4 +7,6 @@ RUN go build
 FROM debian:buster
 RUN apt-get update && apt-get install -y libavutil56 libavcodec58 libavformat58 libavdevice58
 COPY --from=build /videostreamer/videostreamer /
-CMD ["/videostreamer"]
+
+ENV input
+CMD ["/videostreamer", "-input $input"]
